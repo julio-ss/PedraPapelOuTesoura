@@ -31,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
         this.opcaoSelecionada("Pedra");
     }
 
-    public void opcaoSelecionada(String opcaoSelecionada){
+    public void opcaoSelecionada(String escolhaUsuario){
 
         ImageView imgRetorno = findViewById(R.id.imgRetorno);
 
         int numero = new Random().nextInt(3);
         String[] opcoes = {"pedra", "papel", "tesoura"};
-        String opcaoApp = opcoes [numero];
+        String escolhaApp = opcoes [numero];
 
-        switch (opcaoApp){
+        switch (escolhaApp){
             case "pedra":
                 imgRetorno.setImageResource(R.drawable.pedra);
                 break;
@@ -53,6 +53,22 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        Log.i(logSelect, "Escolha do app: " + opcaoApp);
+        if(//app ganhador
+                (escolhaApp == "tesoura" && escolhaUsuario == "papel") ||
+                (escolhaApp == "papel" && escolhaUsuario == "pedra") ||
+                (escolhaApp == "pedra" && escolhaUsuario == "tesousa")
+        ){
+
+        }else if(//usuario ganhador
+                (escolhaUsuario == "tesoura" && escolhaApp == "papel") ||
+                (escolhaUsuario == "papel" && escolhaApp == "pedra") ||
+                (escolhaUsuario == "pedra" && escolhaApp == "tesousa")
+        ){
+
+        }else{//empate
+
+        }
+
+        Log.i(logSelect, "Escolha do app: " + escolhaUsuario);
     }
 }
